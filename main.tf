@@ -4,9 +4,12 @@ provider "aws" {
 
 variable "prefix" {
   type = "string"
-  default = "dixler"
+  default = "dev"
 }
 
+output "lambda-target" {
+  value = "${aws_lambda_function.test_lambda.function_name}"
+}
 
 resource "aws_iam_role" "iam_for_lambda" {
 
